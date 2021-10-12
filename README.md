@@ -1,6 +1,6 @@
 # DP-CL(Continual Learning with Differential Privacy)
 
-This is the official implementation of the [Continual Learning with Differential Privacy](https://arxiv.org/pdf/2004.00204.pdf).
+This is the official implementation of the [Continual Learning with Differential Privacy](https://arxiv.org/pdf/2110.05223.pdf).
 
 If you use this code or our results in your research, please cite as appropriate:
 
