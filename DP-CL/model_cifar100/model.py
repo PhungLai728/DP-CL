@@ -1199,12 +1199,12 @@ class Model:
               
         # ADD NOISE
         
-        grad1 += tf.random_normal(shape=tf.shape(grad1), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        grad2 += tf.random_normal(shape=tf.shape(grad2), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        grad3 += tf.random_normal(shape=tf.shape(grad3), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        grad4 += tf.random_normal(shape=tf.shape(grad4), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        grad5 += tf.random_normal(shape=tf.shape(grad5), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        grad6 += tf.random_normal(shape=tf.shape(grad6), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
+        grad1 += tf.random_normal(shape=tf.shape(grad1), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        grad2 += tf.random_normal(shape=tf.shape(grad2), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        grad3 += tf.random_normal(shape=tf.shape(grad3), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        grad4 += tf.random_normal(shape=tf.shape(grad4), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        grad5 += tf.random_normal(shape=tf.shape(grad5), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        grad6 += tf.random_normal(shape=tf.shape(grad6), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
                 
         clip_g_ref = []
         clip_g_ref.append(grad1)
@@ -1256,12 +1256,12 @@ class Model:
         task_grad6 = tf.clip_by_norm(task_grad6, gradient_l2norm_bound)
         #ADD NOISE
         
-        task_grad1 += tf.random_normal(shape=tf.shape(task_grad1), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        task_grad2 += tf.random_normal(shape=tf.shape(task_grad2), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        task_grad3 += tf.random_normal(shape=tf.shape(task_grad3), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        task_grad4 += tf.random_normal(shape=tf.shape(task_grad4), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        task_grad5 += tf.random_normal(shape=tf.shape(task_grad5), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        task_grad6 += tf.random_normal(shape=tf.shape(task_grad6), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
+        task_grad1 += tf.random_normal(shape=tf.shape(task_grad1), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        task_grad2 += tf.random_normal(shape=tf.shape(task_grad2), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        task_grad3 += tf.random_normal(shape=tf.shape(task_grad3), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        task_grad4 += tf.random_normal(shape=tf.shape(task_grad4), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        task_grad5 += tf.random_normal(shape=tf.shape(task_grad5), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        task_grad6 += tf.random_normal(shape=tf.shape(task_grad6), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
         
         
         t_grad = [] 
@@ -1346,12 +1346,12 @@ class Model:
        
         #ADD NOISE
         
-        computed_gradient1 += tf.random_normal(shape=tf.shape(computed_gradient1), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        computed_gradient2 += tf.random_normal(shape=tf.shape(computed_gradient2), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        computed_gradient3 += tf.random_normal(shape=tf.shape(computed_gradient3), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        computed_gradient4 += tf.random_normal(shape=tf.shape(computed_gradient4), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        computed_gradient5 += tf.random_normal(shape=tf.shape(computed_gradient5), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
-        computed_gradient6 += tf.random_normal(shape=tf.shape(computed_gradient6), mean=0.0, stddev = (sigma * sensitivity)**2, dtype=tf.float32)
+        computed_gradient1 += tf.random_normal(shape=tf.shape(computed_gradient1), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        computed_gradient2 += tf.random_normal(shape=tf.shape(computed_gradient2), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        computed_gradient3 += tf.random_normal(shape=tf.shape(computed_gradient3), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        computed_gradient4 += tf.random_normal(shape=tf.shape(computed_gradient4), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        computed_gradient5 += tf.random_normal(shape=tf.shape(computed_gradient5), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
+        computed_gradient6 += tf.random_normal(shape=tf.shape(computed_gradient6), mean=0.0, stddev = (sigma * sensitivity), dtype=tf.float32)
         
         
         self.train_first_task = self.opt.apply_gradients([(computed_gradient1,weight1),(computed_gradient2,weight2),(computed_gradient3,weight3),(computed_gradient4,weight4),(computed_gradient5,weight5), (computed_gradient6, weight6)])
